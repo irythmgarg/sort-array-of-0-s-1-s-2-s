@@ -1,0 +1,60 @@
+Theory
+Problem Statement:
+Given an array nums containing only 0s, 1s, and 2s, sort the array in-place without using extra space.
+
+Approach:
+
+The Dutch National Flag problem is an optimal solution for sorting an array with only three distinct values.
+The idea is to maintain three pointers:
+start: Keeps track of the position where the next 0 should go.
+mid: Keeps track of the current element being processed.
+end: Keeps track of the position where the next 2 should go.
+We iterate through the array and move elements to their correct positions using the three pointers.
+Algorithm:
+
+Initialize three pointers: start = 0, mid = 0, and end = n - 1 (where 
+𝑛
+n is the length of the array).
+Iterate through the array with the mid pointer:
+If nums[mid] == 0, swap it with the element at start, and increment both start and mid.
+If nums[mid] == 2, swap it with the element at end, and decrement end.
+If nums[mid] == 1, simply move the mid pointer forward.
+The process continues until the mid pointer exceeds the end pointer.
+Complexity:
+
+Time Complexity: 
+𝑂
+(
+𝑛
+)
+O(n), where 
+𝑛
+n is the size of the array. We make a single pass through the array.
+Space Complexity: 
+𝑂
+(
+1
+)
+O(1), since we are sorting the array in-place.
+Algorithm Explanation
+Initialization:
+
+start = 0: This pointer will track where the next 0 should go.
+mid = 0: This pointer will iterate over the array.
+end = n - 1: This pointer will track where the next 2 should go.
+Iterating Through the Array:
+
+If nums[mid] == 0:
+Swap nums[mid] with nums[start] to place 0 at the correct position.
+Move both start and mid pointers forward.
+If nums[mid] == 2:
+Swap nums[mid] with nums[end] to place 2 at the correct position.
+Move the end pointer backward, but keep mid at the same position since the swapped element needs to be checked.
+If nums[mid] == 1:
+Simply move the mid pointer forward to check the next element.
+Termination:
+
+The process continues until mid exceeds end. At this point, all 0s, 1s, and 2s are sorted in their respective positions.
+Returning:
+
+The sorted array is modified in-place.
